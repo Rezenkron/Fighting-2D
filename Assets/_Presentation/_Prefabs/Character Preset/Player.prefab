@@ -118,6 +118,34 @@ PrefabInstance:
     - {fileID: 5614195499488779661, guid: 47cb56d644c70b34e9e49d57dcbedaf1, type: 3}
     - {fileID: 788513495273198632, guid: 47cb56d644c70b34e9e49d57dcbedaf1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 47cb56d644c70b34e9e49d57dcbedaf1, type: 3}
+--- !u!1 &1546294774153461753 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1554100012435694503, guid: 47cb56d644c70b34e9e49d57dcbedaf1, type: 3}
+  m_PrefabInstance: {fileID: 64404296147229790}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3544159564240870862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546294774153461753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8193976303b804540810b772de6e56c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 9111872853356376265}
+  rigidbody2d: {fileID: 7015482586559747009}
+  animationTransitionSpeed: 0.3
+  speed: 100
+  jumpForce: 5
+  jumpsAmount: 2
+  groundChecker: {fileID: 2366614020941339210}
+  fallGravityScale: 2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!4 &2826405102420299989 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2872635938322795659, guid: 47cb56d644c70b34e9e49d57dcbedaf1, type: 3}
@@ -126,6 +154,16 @@ Transform:
 --- !u!4 &5230306948048977582 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5219961313650418416, guid: 47cb56d644c70b34e9e49d57dcbedaf1, type: 3}
+  m_PrefabInstance: {fileID: 64404296147229790}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &7015482586559747009 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 7041606043952500639, guid: 47cb56d644c70b34e9e49d57dcbedaf1, type: 3}
+  m_PrefabInstance: {fileID: 64404296147229790}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &9111872853356376265 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9121811560556768407, guid: 47cb56d644c70b34e9e49d57dcbedaf1, type: 3}
   m_PrefabInstance: {fileID: 64404296147229790}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3808380679887199203

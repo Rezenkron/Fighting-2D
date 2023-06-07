@@ -7,7 +7,7 @@ public class HorizontalWalkingView
     {
         this.animator = animator;
     }
-    public void SetHorizontalMoveAnimation(float horizontalInput, float transitionTime)
+    public void SetMoveAnimation(float horizontalInput, float transitionTime)
     {
         animator.SetFloat(HashedAnimations.HorizontalSpeed, Mathf.Abs(horizontalInput),transitionTime, Time.deltaTime);
     }

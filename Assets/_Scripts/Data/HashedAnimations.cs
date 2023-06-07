@@ -8,5 +8,6 @@ public static class HashedAnimations
     //PARAMETERS
     public static int HorizontalSpeed { get; private set; } = Animator.StringToHash("HorizontalSpeed");
     public static int VerticalSpeed { get; private set; } = Animator.StringToHash("VerticalSpeed");
+    public static int IsGrounded { get; private set; } = Animator.StringToHash("IsGrounded");
 
 }

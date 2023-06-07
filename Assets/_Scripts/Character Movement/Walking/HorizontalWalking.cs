@@ -3,12 +3,14 @@ using UnityEngine;
 public class HorizontalWalking
 {
     private readonly Rigidbody2D rigidbody;
+    public Vector3 Direction { get; private set; }
     public HorizontalWalking(Rigidbody2D rigidbody)
     {
         this.rigidbody = rigidbody;
     }
     public void Move(float horizontalInput, float speed)
     {
-        rigidbody.velocity = new Vector2(speed * horizontalInput * Time.fixedDeltaTime, rigidbody.velocity.y);
+        Direction = new Vector3(horizontalInput * speed * Time.deltaTime, rigidbody.velocity.y);
+        rigidbody.velocity = Direction;
     }
 }

@@ -808,6 +808,95 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3564026850829729314, guid: 406ae01b7bf025d478da7b57dfe1715c, type: 3}
   m_PrefabInstance: {fileID: 302291847}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &312495349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 312495352}
+  - component: {fileID: 312495351}
+  - component: {fileID: 312495350}
+  m_Layer: 0
+  m_Name: SceneContext
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &312495350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312495349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77741f078c1fa7943a885a51326ff427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1479353255}
+  anim: {fileID: 874226064}
+  rb: {fileID: 1479353253}
+  speed: 3
+  maxJumpsAmount: 2
+  jumpForce: 5
+  fallGravityScale: 2
+  maxJumpTime: 0.3
+  groundChecker: {fileID: 1045863892}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!114 &312495351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312495349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 312495350}
+  _installerPrefabs: []
+  _autoRun: 1
+  OnPreInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPreResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  _parentNewObjectsUnderSceneContext: 0
+  _contractNames: []
+  _parentContractNames: []
+--- !u!4 &312495352
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312495349}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &314236680
 GameObject:
   m_ObjectHideFlags: 0
@@ -2156,6 +2245,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5260572382779035084, guid: c5f8f079905bce04f945cd8ff4ba545a, type: 3}
   m_PrefabInstance: {fileID: 851513551}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &874226064 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9111872853356376265, guid: a0abd49047891b24d826e202a5444125, type: 3}
+  m_PrefabInstance: {fileID: 1184391076}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &901105366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2454,6 +2548,11 @@ Transform:
   m_Father: {fileID: 1323121588}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1045863892 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2366614020941339210, guid: a0abd49047891b24d826e202a5444125, type: 3}
+  m_PrefabInstance: {fileID: 1184391076}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1094733364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12790,6 +12889,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3564026850829729314, guid: 406ae01b7bf025d478da7b57dfe1715c, type: 3}
   m_PrefabInstance: {fileID: 1461323078}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &1479353253 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 7015482586559747009, guid: a0abd49047891b24d826e202a5444125, type: 3}
+  m_PrefabInstance: {fileID: 1184391076}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1479353255 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2607210701974845220, guid: a0abd49047891b24d826e202a5444125, type: 3}
+  m_PrefabInstance: {fileID: 1184391076}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2457fac71a59d34ab71a2b76a278f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1522390203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13396,10 +13511,6 @@ PrefabInstance:
     - target: {fileID: 7208481279798210087, guid: b66942e8458865e4990a5fc39874e9a1, type: 3}
       propertyPath: m_Name
       value: PF Village Props - Platform S
-      objectReference: {fileID: 0}
-    - target: {fileID: 7208481279798210087, guid: b66942e8458865e4990a5fc39874e9a1, type: 3}
-      propertyPath: m_Layer
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b66942e8458865e4990a5fc39874e9a1, type: 3}

@@ -1,45 +1,50 @@
 using UnityEngine;
+using Zenject;
 
-public class PhysicsJump
+public class PhysicsJump : IJumpModel
 {
     private readonly Rigidbody2D rigidbody;
-    private readonly Transform groundChecker;
-    private readonly LayerMask groundLayer;
-    private readonly float maxJumpsAmount;
-    private float jumpsAmount;
-
+    private readonly int maxJumpsAmount;
+    private readonly float jumpForce;
+    private readonly float fallGravityScale;
+    private readonly float maxJumpTime;
     private readonly float gravityScale;
 
+    private int jumpsAmount;
     private float buttonPressedTime;
-
-
     private bool isJumping;
 
-    private JumpView jumpView;
+    private readonly IInput<bool> input;
+    private readonly IJumpView jumpView;
+    private readonly GroundChecker groundChecker;
 
-    public PhysicsJump(Rigidbody2D rigidbody, Transform groundChecker, LayerMask groundLayer, float jumpsAmount, JumpView jumpView)
+    public PhysicsJump([Inject(Id = "playerRigidbody")]Rigidbody2D rigidbody, IJumpView jumpView, GroundChecker groundChecker, IInput<bool> input, int jumpsAmount, float jumpForce, float fallGravityScale, float maxJumpTime)
     {
         this.rigidbody = rigidbody;
+        this.jumpsAmount = jumpsAmount;
+        this.jumpView = jumpView;
         this.groundChecker = groundChecker;
-        this.groundLayer = groundLayer;
+        this.input = input;
         this.jumpsAmount = jumpsAmount;
         this.maxJumpsAmount = jumpsAmount;
+        this.jumpForce = jumpForce;
+        this.fallGravityScale = fallGravityScale;
+        this.maxJumpTime = maxJumpTime;
 
         gravityScale = rigidbody.gravityScale;
-
-        this.jumpView = jumpView;
     }
 
-    public void DoJump(bool input,float jumpForce, float fallGravityScale, float maxButtonPressedTime)
+    public void DoJump()
     {
-        jumpView.SetVerticalSpeed(0.3f);
+        input.ReadInput();
+        jumpView.SetVerticalSpeed();
         if (!isJumping)
         {
-            bool isGrounded = Physics2D.OverlapCircle(groundChecker.position, 0.1f, groundLayer);
-            jumpView.IsGrounded(isGrounded);
+            bool isGrounded = groundChecker.IsGrounded();
+            jumpView.IsGrounded();
             if (isGrounded) { jumpsAmount = maxJumpsAmount; }
         }
-        if (input && jumpsAmount-- > 0)
+        if (input.GetInput() && jumpsAmount-- > 0)
         {
             rigidbody.gravityScale = gravityScale;
             isJumping = true;
@@ -49,7 +54,7 @@ public class PhysicsJump
         {
             buttonPressedTime += Time.deltaTime;
             rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpForce);
-            if(buttonPressedTime > maxButtonPressedTime || Input.GetButtonUp("Jump"))
+            if(buttonPressedTime > maxJumpTime || Input.GetButtonUp("Jump"))
             {
                 isJumping = false;
             }
@@ -60,3 +65,4 @@ public class PhysicsJump
         }
     }
 }
+

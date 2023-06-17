@@ -2,19 +2,12 @@ using UnityEngine;
 
 public class InputKeyListener : IInputListener<bool>
 {
-    private readonly KeyCode key;
-
-    public InputKeyListener(KeyCode key)
-    {
-        this.key = key;
-    }
-
-    public bool OnButtonDown()
+    public bool OnButtonDown(KeyCode key)
     {
         return Input.GetKeyDown(key);
     }
 
-    public bool OnButtonUp()
+    public bool OnButtonUp(KeyCode key)
     {
         return Input.GetKeyUp(key);
     }

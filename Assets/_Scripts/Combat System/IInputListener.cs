@@ -1,5 +1,7 @@
+using UnityEngine;
+
 public interface IInputListener<T>
 {
-    public T OnButtonDown();
-    public T OnButtonUp();
+    public T OnButtonDown(KeyCode key);
+    public T OnButtonUp(KeyCode key);
 }

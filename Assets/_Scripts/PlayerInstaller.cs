@@ -7,6 +7,7 @@ public class PlayerInstaller : MonoInstaller
     [SerializeField] private Player player;
     [SerializeField] private Animator anim;
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private WeaponHolder weaponHolder;
 
     [Header("Movement")]
     [SerializeField] private float speed;
@@ -19,8 +20,14 @@ public class PlayerInstaller : MonoInstaller
     [SerializeField] private Transform groundChecker;
     [SerializeField] private LayerMask groundLayer;
 
+    [Header("Combat")]
+    [SerializeField] private KeyCode attackKey;
+    [SerializeField] private KeyCode buffKey;
+
+
     public override void InstallBindings()
     {
+        BindPlayer();
         BindMovementInput();
         BindMovementModel();
         BindMovementView();
@@ -29,6 +36,14 @@ public class PlayerInstaller : MonoInstaller
         BindJumpModel();
         BindJumpView();
         BindGroundChecker();
+    }
+
+    private void BindPlayer()
+    {
+        Container.Bind<Player>().FromInstance(player);
+        Container.Bind<IInputListener<bool>>().To<InputKeyListener>().AsSingle();
+        Container.Bind<CombatAnimation>().AsSingle().WithArguments(anim, attackKey, buffKey);
+        Container.Bind<WeaponHolder>().FromInstance(weaponHolder).AsSingle();
     }
 
     private void BindGroundChecker()
@@ -48,7 +63,7 @@ public class PlayerInstaller : MonoInstaller
     {
         Container.Bind<IJumpModel>()
             .To<PhysicsJump>()
-            .AsSingle().WithArguments(maxJumpsAmount,jumpForce,fallGravityScale,maxJumpTime);
+            .AsSingle().WithArguments(rb, maxJumpsAmount,jumpForce,fallGravityScale,maxJumpTime);
     }
 
     private void BindJumpView()
@@ -67,32 +82,16 @@ public class PlayerInstaller : MonoInstaller
     private void BindMovementModel()
     {
         Container
-            .Bind<float>()
-            .WithId("speed")
-            .FromInstance(speed);
-
-        Container
-            .Bind<Rigidbody2D>()
-            .WithId("playerRigidbody")
-            .FromInstance(rb)
-            .AsSingle();
-
-        Container
             .Bind<IMovementModel>()
             .To<PlayerMovement>()
-            .AsSingle();
+            .AsSingle().WithArguments(speed,rb);
     }
 
     private void BindMovementView()
     {
-        Container.
-            Bind<Animator>()
-            .FromInstance(anim)
-            .AsSingle();
-
         Container
             .Bind<IMovementView>()
             .To<PlayerMovementView>()
-            .AsSingle();
+            .AsSingle().WithArguments(rb,anim);
     }
 }

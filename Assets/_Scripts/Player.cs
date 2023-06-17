@@ -3,6 +3,7 @@ using Zenject;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private int health;
     private IMovementModel playerMovement;
     private IMovementView playerMovementView;
     private IJumpModel jumpModel;

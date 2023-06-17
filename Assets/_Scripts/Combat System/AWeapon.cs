@@ -1,19 +1,35 @@
+using System;
+using System.Threading;
 using UnityEngine;
+using Zenject;
 
 public abstract class AWeapon : MonoBehaviour
 {
-    [SerializeField] protected float damage;
-    [SerializeField] protected float attackCooldown;
-    [SerializeField] protected float buffCooldown;
+    [SerializeField] protected int damage;
+
+    private CombatAnimation combatAnimation;
+
+    public event Action<AWeapon, int> OnHit;
+
+    [Inject]
+    private void Construct(CombatAnimation combatAnimation)
+    {
+        this.combatAnimation = combatAnimation;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //if (collision.gameObject is EnemyCommonSettings)
-        //{
-        //    Attack();
-        //}
+        OnHit?.Invoke(this, damage);
     }
-    protected abstract void Attack();
+
+    private void Update()
+    {
+        combatAnimation.Update();
+    }
     protected abstract void Buff();
 
+    private void BuffTimer()
+    {
+        
+    }
 }

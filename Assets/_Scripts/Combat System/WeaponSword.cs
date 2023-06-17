@@ -2,10 +2,9 @@ using UnityEngine;
 
 public class WeaponSword : AWeapon
 {
-    protected override void Attack()
-    {
-    }
+    [SerializeField] int IncreaseDamagePercent;
     protected override void Buff()
     {
+        damage += damage * (IncreaseDamagePercent / 100);
     }
 }

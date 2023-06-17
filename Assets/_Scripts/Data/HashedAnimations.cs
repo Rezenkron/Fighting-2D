@@ -10,6 +10,7 @@ public static class HashedAnimations
     public static int VerticalSpeed { get; private set; } = Animator.StringToHash("VerticalSpeed");
     public static int IsGrounded { get; private set; } = Animator.StringToHash("IsGrounded");
     public static int IsAttacking { get; private set; } = Animator.StringToHash("IsAttacking");
+    public static int Attack { get; private set; } = Animator.StringToHash("Attack");
     public static int AttackAction { get; private set; } = Animator.StringToHash("AttackAction");
         // ATTACK ACTIONS
         public static int Swipe { get; private set; } = 0;

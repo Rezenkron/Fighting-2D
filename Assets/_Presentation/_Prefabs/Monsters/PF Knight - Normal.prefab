@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6743556452622266024}
   - component: {fileID: 5218067878039927586}
   - component: {fileID: 2025350193268905450}
+  - component: {fileID: 8018645230584664494}
   m_Layer: 0
   m_Name: PF Knight - Normal
   m_TagString: Untagged
@@ -81,6 +82,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1086552, y: 2.5560424}
   m_EdgeRadius: 0
+--- !u!114 &8018645230584664494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3273370572504723094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae93e7fd1a136c84787f48420644fa0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 150
 --- !u!1001 &585657671659775904
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91,6 +105,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: f5279562ade20de4eb7e7699463fa63d, type: 3}
       propertyPath: m_Name
       value: Animator
+      objectReference: {fileID: 0}
+    - target: {fileID: 100098, guid: f5279562ade20de4eb7e7699463fa63d, type: 3}
+      propertyPath: m_Name
+      value: Knight Sword
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f5279562ade20de4eb7e7699463fa63d, type: 3}
       propertyPath: m_RootOrder
@@ -135,6 +153,14 @@ PrefabInstance:
     - target: {fileID: 400000, guid: f5279562ade20de4eb7e7699463fa63d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400098, guid: f5279562ade20de4eb7e7699463fa63d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 400098, guid: f5279562ade20de4eb7e7699463fa63d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.72
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: f5279562ade20de4eb7e7699463fa63d, type: 3}
       propertyPath: m_Controller
@@ -266,6 +292,54 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: eca150d9e070d9a43bbb47cb70392466, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5279562ade20de4eb7e7699463fa63d, type: 3}
+--- !u!1 &585657671659741346 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100098, guid: f5279562ade20de4eb7e7699463fa63d, type: 3}
+  m_PrefabInstance: {fileID: 585657671659775904}
+  m_PrefabAsset: {fileID: 0}
+--- !u!60 &118341351356449455
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585657671659741346}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -26.711193, y: -7308.845}
+      - {x: 0.28849667, y: 505.90485}
+      - {x: 23.355276, y: 7094.4175}
+      - {x: 23.894035, y: 6950.7944}
+      - {x: -25.20399, y: -7177.043}
+--- !u!114 &6062211257967393181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585657671659741346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f1ddfcfd86178f4299ee095769a3b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 11
 --- !u!4 &585657671659912480 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: f5279562ade20de4eb7e7699463fa63d, type: 3}

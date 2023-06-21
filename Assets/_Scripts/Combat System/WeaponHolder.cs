@@ -18,7 +18,9 @@ public class WeaponHolder : MonoBehaviour
         {
             weapons[i].gameObject.SetActive(false);
         }
+
         activeWeapon = weapons[0];
+
         OnWeaponChanged.Invoke(activeWeapon);
     }
 

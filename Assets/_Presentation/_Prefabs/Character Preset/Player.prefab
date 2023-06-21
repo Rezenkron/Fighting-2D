@@ -423,4 +423,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 6
-  IncreaseDamagePercent: 20
+  buffDuration: 10
+  buffCooldown: 20
+  IncreaseDamageValue: 4

@@ -21,6 +21,7 @@ public class PlayerInstaller : MonoInstaller
     [SerializeField] private LayerMask groundLayer;
 
     [Header("Combat")]
+    [SerializeField] private CombatAnimationEvents combatAnimationEvents;
     [SerializeField] private KeyCode attackKey;
     [SerializeField] private KeyCode buffKey;
 
@@ -43,6 +44,7 @@ public class PlayerInstaller : MonoInstaller
         Container.Bind<Player>().FromInstance(player);
         Container.Bind<IInputListener<bool>>().To<InputKeyListener>().AsSingle();
         Container.Bind<CombatAnimation>().AsSingle().WithArguments(anim, attackKey, buffKey);
+        Container.Bind<CombatAnimationEvents>().FromInstance(combatAnimationEvents).AsSingle();
         Container.Bind<WeaponHolder>().FromInstance(weaponHolder).AsSingle();
     }
 
